@@ -43,7 +43,7 @@ def model_similarity(model, image, shape):
         for y_key, y_value in embedding_dict.iteritems():
             similarity.update({y_key:cosine_similarity([g_test[0]], [y_value[0]])})
             #similarity.update({y_key: cosine_similarity(g_test[0], y_value[0])})
-        print(sorted(similarity.items(), key=operator.itemgetter(1)[:5]))
+        print(sorted(similarity.items(), key=operator.itemgetter(1)[0:5]))
 
 
 model_similarity("model/model_simpleAE.ckpt","test_raw/fries2_resized.jpeg", (50,50))
