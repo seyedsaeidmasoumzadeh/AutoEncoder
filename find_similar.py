@@ -9,16 +9,6 @@ import numpy as np
 img_train_dir_proc = "train_proc"
 
 
-#def square_rooted(x):
-#    return round(sqrt(sum([a * a for a in x])), 3)
-
-
-#def cosine_similarity(x, y):
-#    numerator = sum(a * b for a, b in zip(x, y))
-#    denominator = square_rooted(x) * square_rooted(y)
-#    return round(numerator / float(denominator), 3)
-
-
 def model_similarity(model, image, shape):
     IU =  image_utilities.ImageUtils()
     x_data_train, all_train_filenames = IU.raw2resizednorm_load(img_dir= img_train_dir_proc, img_shape=shape)
@@ -42,8 +32,8 @@ def model_similarity(model, image, shape):
         similarity = {}
         for y_key, y_value in embedding_dict.iteritems():
             similarity.update({y_key:cosine_similarity([g_test[0]], [y_value[0]])})
-            #similarity.update({y_key: cosine_similarity(g_test[0], y_value[0])})
-        print(sorted(similarity.items(), key=operator.itemgetter(1))[0:5])
+            for x in reversed(sorted(similarity.items(), key=operator.itemgetter(1))[0:5]):
+                print(x)
 
 
 model_similarity("model/model_simpleAE.ckpt","test_raw/fries2_resized.jpeg", (50,50))
