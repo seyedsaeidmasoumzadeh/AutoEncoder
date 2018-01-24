@@ -31,7 +31,6 @@ class AutoEncoder(object):
 
         }
 
-
         # Building the encoder
         def encoder(x):
             # Encoder Hidden layer with sigmoid activation #1

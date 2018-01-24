@@ -6,10 +6,8 @@ import tensorflow as tf
 
 class AutoEncoder(object):
     def __init__(self):
-        # Training Parameters
+        # Parameters
         self.learning_rate = 0.001
-
-        # Network Parameters
         self.num_input = 7500 # data input (img shape: 50*50*3)
 
         # tf Graph input

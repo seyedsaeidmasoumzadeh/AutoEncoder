@@ -5,7 +5,6 @@ from model_simpleAE import AutoEncoder
 from image_utilities import ImageUtils
 
 
-
 process_and_save_images = True
 flatten_before_encode = True
 img_shape = (50,50)
@@ -16,17 +15,6 @@ img_train_dir_raw = "train_raw"
 img_train_dir_proc = "train_proc"
 img_test_dir_raw = "test_raw"
 img_test_dir_proc = "test_proc"
-
-
-
-# ========================================
-#
-# Pre-process save/load training and inventory images
-#
-# ========================================
-
-
-
 
 
 IU = ImageUtils()
@@ -40,18 +28,14 @@ if process_and_save_images:
                              img_shape=img_shape)
 
 
-
 AE = AutoEncoder()
 with tf.Session() as sess:
-
 
     # Run the initializer
     sess.run(AE.init)
     saver = tf.train.Saver()
     x_data_train, all_train_filenames = IU.raw2resizednorm_load(img_dir=img_train_dir_proc, img_shape=img_shape)
     print("x_data_train.shape = {0}".format(x_data_train.shape))
-
-
     # Flatten data if necessary
     if flatten_before_encode:
         x_data_train = IU.flatten_img_data(x_data_train)
@@ -63,7 +47,7 @@ with tf.Session() as sess:
             X_batch = x_data_train[(step * batch_size):((step + 1) * batch_size)]
             # Run optimization op (backprop) and cost op (to get loss value)
             _, l = sess.run([AE.optimizer, AE.loss], feed_dict={AE.X: X_batch})
-        # Display logs per step
+        # Display loss per step
         print('Step %i: Minibatch Loss: %f' % (i, l))
     save_path = saver.save(sess, "model/model_simpleAE.ckpt")
 
