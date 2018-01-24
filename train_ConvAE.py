@@ -3,11 +3,10 @@ from __future__ import division, print_function, absolute_import
 import tensorflow as tf
 from model_convAE import AutoEncoder
 from image_utilities import ImageUtils
-from math import *
 
 process_and_save_images = True
 flatten_before_encode = True
-img_shape = (100,100)
+img_shape = (50,50)
 ratio_train_test = 0.8
 seed = 100
 num_steps = 5000

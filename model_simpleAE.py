@@ -1,8 +1,7 @@
 from __future__ import division, print_function, absolute_import
 
 import tensorflow as tf
-import numpy as np
-import matplotlib.pyplot as plt
+
 
 
 class AutoEncoder(object):
@@ -13,7 +12,7 @@ class AutoEncoder(object):
         # Network Parameters
         self.num_hidden_1 = 128  # 1st layer num features
         self.num_hidden_2 = 96  # 2st layer num features
-        self.num_input = 30000 # data input (img shape: 3*28*28)
+        self.num_input = 7500 # data input (img shape: 3*28*28)
 
         # tf Graph input (only pictures)
         self.X = tf.placeholder("float", [None, self.num_input])

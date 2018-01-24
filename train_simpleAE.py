@@ -8,7 +8,7 @@ from image_utilities import ImageUtils
 
 process_and_save_images = True
 flatten_before_encode = True
-img_shape = (100,100)
+img_shape = (50,50)
 seed = 100
 num_steps = 10000
 batch_size = 10
