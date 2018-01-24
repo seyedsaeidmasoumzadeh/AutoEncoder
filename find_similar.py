@@ -32,7 +32,7 @@ def model_similarity(model, image, shape):
         similarity = {}
         for y_key, y_value in embedding_dict.iteritems():
             similarity.update({y_key:cosine_similarity([g_test[0]], [y_value[0]])})
-            for x in reversed(sorted(similarity.items(), key=operator.itemgetter(1)))[5:0]:
+            for x in reversed(sorted(similarity.items(), key=operator.itemgetter(1)))[:5]:
                 print(x)
 
 
