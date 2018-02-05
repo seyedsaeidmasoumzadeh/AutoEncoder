@@ -2,7 +2,6 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-model/*
 !model/checkpoint
 # Pycharm
 .idea
