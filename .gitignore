@@ -8,3 +8,4 @@
 workspace.xml
 */.idea
 __pycache__
+model/
