@@ -30,5 +30,5 @@ def model_similarity(model, image, shape):
             print(x)
 
 # Find 5 similar images to a given image(please select your desire model,  SimpleAE or ConvAE)
-model_similarity("model/model_simpleAE.ckpt","test_raw/salad1_resized.jpeg", (50,50))
+model_similarity("model/model_convAE.ckpt","test_raw/salad1_resized.jpeg", (50,50))
 
