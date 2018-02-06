@@ -9,8 +9,8 @@ img_train_dir_proc = "train_proc"
 
 def model_similarity(model, image, shape):
     IU =  image_utilities.ImageUtils()
-    x_data_train, all_train_filenames = IU.raw2resizednorm_load(img_dir= img_train_dir_proc, img_shape=shape)
-    x_data_test = IU.img_resizednorm_load(img_path= image, img_shape=shape)
+    x_data_train, all_train_filenames = IU.load_raw2resizednorm(img_dir= img_train_dir_proc, img_shape=shape)
+    x_data_test = IU.load_img_resizednorm(img_path= image, img_shape=shape)
     x_data_test = IU.flatten_img_data(x_data_test)
     x_data_train = IU.flatten_img_data(x_data_train)
     AE = AutoEncoder()

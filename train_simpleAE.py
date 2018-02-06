@@ -23,7 +23,7 @@ IU = ImageUtils()
 if process_and_save_images:
 
     # Training images
-    IU.raw2resized_load_save(raw_dir=img_train_dir_raw,
+    IU.save_raw2resized(raw_dir=img_train_dir_raw,
                              processed_dir=img_train_dir_proc,
                              img_shape=img_shape)
 
@@ -34,7 +34,7 @@ with tf.Session() as sess:
     # Run the initializer
     sess.run(AE.init)
     saver = tf.train.Saver()
-    x_data_train, all_train_filenames = IU.raw2resizednorm_load(img_dir=img_train_dir_proc, img_shape=img_shape)
+    x_data_train, all_train_filenames = IU.load_raw2resizednorm(img_dir=img_train_dir_proc, img_shape=img_shape)
     print("x_data_train.shape = {0}".format(x_data_train.shape))
     # Flatten data if necessary
     if flatten_before_encode:
